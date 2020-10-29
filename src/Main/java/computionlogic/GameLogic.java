@@ -12,7 +12,7 @@ public class GameLogic {
             System.out.println("unfilled");
             return GameState.ACTIVE;
         }
-        if (isSudokuValid(newGridState)) {
+        if (!isSudokuValid(newGridState)) {
             System.out.println("invalid");
             return GameState.ACTIVE;
         }
@@ -59,7 +59,7 @@ public class GameLogic {
                     return false;
                 }
                 rows[xIndex] = rows[xIndex] | (1 << transfer);
-                cols[yIndex] = rows[yIndex] | (1 << transfer);
+                cols[yIndex] = cols[yIndex] | (1 << transfer);
                 squares[boxIndex] = squares[boxIndex] | (1 << transfer);
             }
         }

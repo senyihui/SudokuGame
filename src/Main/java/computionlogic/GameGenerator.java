@@ -9,20 +9,24 @@ public class GameGenerator {
         return unsolvedGame(getSolvedGame());
     }
 
-    private static int[][] getSolvedGame() {
+    public static int[][] getSolvedGame() {
         Random random = new Random(System.currentTimeMillis());
         int seed = random.nextInt(9);
         int[][] basic = new int[][]{
-                {9, 7, 8, 3, 1, 2, 6, 4, 5}, {3, 1, 2, 6, 4, 5, 9, 7, 8},
-                {6, 4, 5, 9, 7, 8, 3, 1, 2}, {7, 8, 9, 1, 2, 3, 4, 5, 6},
-                {1, 2, 3, 4, 5, 6, 7, 8, 9}, {4, 5, 6, 7, 8, 9, 1, 2, 3},
-                {8, 9, 7, 2, 3, 1, 5, 6, 4}, {2, 3, 1, 5, 6, 4, 8, 9, 7},
+                {9, 7, 8, 3, 1, 2, 6, 4, 5},
+                {3, 1, 2, 6, 4, 5, 9, 7, 8},
+                {6, 4, 5, 9, 7, 8, 3, 1, 2},
+                {7, 8, 9, 1, 2, 3, 4, 5, 6},
+                {1, 2, 3, 4, 5, 6, 7, 8, 9},
+                {4, 5, 6, 7, 8, 9, 1, 2, 3},
+                {8, 9, 7, 2, 3, 1, 5, 6, 4},
+                {2, 3, 1, 5, 6, 4, 8, 9, 7},
                 {5, 6, 4, 8, 9, 7, 2, 3, 1}
         };
 
         for (int xIndex = 0; xIndex < GRID_BOUNDARY; xIndex++) {
             for (int yIndex = 0; yIndex < GRID_BOUNDARY; yIndex++) {
-                basic[xIndex][yIndex] = (basic[xIndex][yIndex] + seed) % 9;
+                basic[xIndex][yIndex] = (basic[xIndex][yIndex] + seed) % 9 + 1;
             }
         }
 
