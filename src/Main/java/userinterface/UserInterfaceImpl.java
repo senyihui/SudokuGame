@@ -235,16 +235,16 @@ public class UserInterfaceImpl implements IUserInterfaceContract.View,
                     if (value.equals("")) {
                         tile.setStyle("-fx-opacity: 1;");
                         tile.setDisable(false);
-                        tile.setOrigin(false);
+                        game.setIsOrigin(xIndex, yIndex, false);
                     } else {
                         tile.setStyle("-fx-opacity: 0.8;");
                         tile.setDisable(true);
+                        game.setIsOrigin(xIndex, yIndex, true);
                     }
-                }
-
-                if (game.getGameState() == GameState.ACTIVE && tile.isOrigin()) {
-                    tile.setStyle("-fx-opacity: 1;");
-                    tile.setDisable(false);
+                } else if (game.getGameState() == GameState.ACTIVE &&
+                        game.getIsOrigin(xIndex, yIndex)) {
+                    tile.setStyle("-fx-opacity: 0.8;");
+                    tile.setDisable(true);
                 }
             }
         }

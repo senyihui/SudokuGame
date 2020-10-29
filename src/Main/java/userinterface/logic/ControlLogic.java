@@ -37,10 +37,14 @@ public class ControlLogic implements IUserInterfaceContract.EventListener {
             int[][] newGridState = gameData.getCopyOfGridState();
             newGridState[x][y] = input;
 
+            // update board to set the original number unchangeable
+            view.updateBoard(gameData);
+            boolean[][] isOrigin = gameData.getIsOrigin();
+
             gameData = new SudokuGame(
                     GameLogic.checkForCompletion(newGridState),
-                    newGridState
-            );
+                    newGridState,
+                    isOrigin);
             System.out.println(gameData.getGameState());
             storage.updateGameData(gameData);
 
@@ -55,8 +59,8 @@ public class ControlLogic implements IUserInterfaceContract.EventListener {
     @Override
     public void onDialogClick() {
         try {
-            storage.updateGameData(GameLogic.getNewGame());
             view.updateBoard(storage.getGameData());
+            storage.updateGameData(GameLogic.getNewGame());
         } catch (IOException e) {
             view.showError(Messages.ERROR);
         }

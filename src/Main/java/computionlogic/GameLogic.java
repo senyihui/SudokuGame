@@ -69,7 +69,7 @@ public class GameLogic {
     public static SudokuGame getNewGame() {
         return new SudokuGame(
                 GameState.NEW,
-                GameGenerator.getNewGameGrid()
-        );
+                GameGenerator.getNewGameGrid(),
+                new boolean[GRID_BOUNDARY][GRID_BOUNDARY]);
     }
 }

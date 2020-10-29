@@ -10,7 +10,6 @@ public class SudokuTextField extends TextField {
     public SudokuTextField(int x, int y, boolean origin) {
         this.x = x;
         this.y = y;
-        this.origin = origin;
     }
 
     public int getX() {
@@ -19,14 +18,6 @@ public class SudokuTextField extends TextField {
 
     public int getY() {
         return y;
-    }
-
-    public boolean isOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(boolean origin) {
-        this.origin = origin;
     }
 
     @Override

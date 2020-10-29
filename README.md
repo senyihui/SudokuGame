@@ -9,7 +9,6 @@ ref: https://www.youtube.com/watch?v=qH9mWpYMtYU
   * `View`：更新前端以及消息提示的接口
 * `SudokuTextField`：继承了JavaFX中的`TextField`接口
   * x与y属性：用户界面坐标，与`Coordinates`类形成键值对存入HashMap
-  * origin属性：数独中数字是否能够被更改，保证写入Storage之后仍然能保持数独中非用户输入的数字无法更改
   * 覆写了replaceText和replaceSelection两个方法，使输入只能为1-9的数字
 * `UserInterfaceImpl`：前端核心代码
   * 继承`IUserInterfaceContract.View`和`EventHandler<KeyEvent>`接口
@@ -23,6 +22,7 @@ ref: https://www.youtube.com/watch?v=qH9mWpYMtYU
     2. ACTIVE
     3. COMPLETE
   * `gridState`
+  * `isOrigin`: 数独中数字是否能够被更改，保证写入Storage之后仍然能保持数独中非用户输入的数字无法更改
 * `IStorage`：数据储存接口
 
 ## Sudoku Algorithm
