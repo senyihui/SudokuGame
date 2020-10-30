@@ -9,7 +9,7 @@ public class GameGenerator {
         return unsolvedGame(getSolvedGame());
     }
 
-    public static int[][] getSolvedGame() {
+    private static int[][] getSolvedGame() {
         Random random = new Random(System.currentTimeMillis());
         int seed = random.nextInt(9);
         int[][] basic = new int[][]{

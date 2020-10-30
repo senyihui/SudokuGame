@@ -2,8 +2,11 @@ import computionlogic.GameGenerator;
 import computionlogic.GameLogic;
 import constants.GameState;
 import org.junit.jupiter.api.Test;
+import org.powermock.reflect.Whitebox;
+
 
 public class SudokuGeneratorTest {
+
     /**
      * Generate a new puzzle based on the appropriate rules.
      */
@@ -29,8 +32,10 @@ public class SudokuGeneratorTest {
      * Generate a solved puzzle based on the appropriate rules.
      */
     @Test
-    public void onGenerateSolvedPuzzle() {
-        int[][] newPuzzle = GameGenerator.getSolvedGame();
+    public void onGenerateSolvedPuzzle() throws Exception {
+        GameGenerator gameGenerator = new GameGenerator();
+        int[][] newPuzzle = Whitebox.invokeMethod(gameGenerator,
+                "getSolvedGame");
 
         int numberOfFilledSquares = 0;
 
